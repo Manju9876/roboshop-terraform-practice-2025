@@ -11,3 +11,13 @@ module "ec2" {
 }
 
 
+module "route53" {
+  for_each = var.tag_name
+  source   = "./modules/route53"
+
+  zone_id  = var.zone_id
+  tag_name = each.key
+  env      = var.env
+
+  private_ip = module.ec2[each.key].private_ip
+}
