@@ -14,7 +14,7 @@ tag_name = {
 }
 
 
-vpc_security_group-ids = ["sg-043ff9d2da877c20a"]
+vpc_security_group_ids = ["sg-043ff9d2da877c20a"]
 
 zone_id = "Z03117651054LFO2TDC32"
 
