@@ -1,0 +1,1 @@
+# roboshop-terraform-practice-2025
