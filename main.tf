@@ -2,7 +2,7 @@ module "ec2" {
   for_each = var.tag_name
   source   = "./modules/ec2"
 
-  ami                    = each.value["ami-id"]
+  ami                    = each.value["ami_id"]
   env                    = var.env
   instance_type          = each.value["instace_type"]
   tag_name               = each.key
