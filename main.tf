@@ -7,7 +7,7 @@ module "ec2" {
   instance_type          = each.value["instance_type"]
   tag_name               = each.key
   zone_id                = var.zone_id
-  vpc_security_group-ids = var.vpc_security_group_ids
+  vpc_security_group_ids = var.vpc_security_group_ids
 }
 
 
