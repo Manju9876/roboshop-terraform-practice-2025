@@ -13,6 +13,6 @@ data "vault_generic_secret" "sample" {
 resource "local_file" "sample" {
   filename = "/tmp/demo.txt"
   content = <<EOF
-username: ${data.vault_generic_secret.sample.data["user_name"]}
+username: ${data.vault_generic_secret.sample.data["username"]}
 EOF
 }
