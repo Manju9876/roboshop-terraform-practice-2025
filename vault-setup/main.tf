@@ -6,5 +6,6 @@ provider "vault" {
 variable "vault_token" {}
 
 data "vault_generic_secret" "sample" {
-  path = "test/data/demo"
+  path = "test/demo"
 }
+
