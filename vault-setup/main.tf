@@ -1,3 +1,10 @@
+terraform {
+  backend "s3" {
+    bucket       = "terraform-demo-2025"
+    key          = "vault-secrets/state"
+    region       = "us-east-1"
+  }
+}
 
 provider "vault" {
    address = "http://vault.devopsbymanju.shop:8200"
@@ -10,9 +17,13 @@ data "vault_generic_secret" "sample" {
   path = "test/demo"
 }
 
-resource "local_file" "sample" {
-  filename = "/tmp/demo.txt"
-  content = <<EOF
-username: ${data.vault_generic_secret.sample.data["username"]}
-EOF
+resource "vault_generic_secret" "sample" {
+  path = "infra/ssh"
+
+  data_json = <<EOT
+{
+  "username":   "ec2-user",
+  "password": "DevOps321"
+}
+EOT
 }
